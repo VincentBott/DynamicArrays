@@ -1,6 +1,8 @@
 package com.company;
 
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class Main {
@@ -9,32 +11,32 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
+        System.out.print("Geef getallen in (negatief om te stoppen):  ");
 
-        int input;
+        int getal = Integer.parseInt(scanner.nextLine());
 
-        DynArray getallen = new DynArray();
+        ArrayList<Integer> getallen = new ArrayList<>();
 
+        while(getal >= 0){
 
-        do {
+            getallen.add(getal);
 
-            System.out.print("Geef getal: ");
+            System.out.print("Geef getallen in (negatief om te stoppen):  ");
 
-            input = Integer.parseInt(scanner.nextLine());
+            getal = Integer.parseInt(scanner.nextLine());
 
-            if (input >= 0)
-                getallen.add(input);
+        }
 
+        Collections.sort(getallen);
 
-        } while (input >=0);
-
-
-        System.out.println("De gesorteerde lijst:");
-
-        getallen.sort();
+        System.out.println("De gesorteerde getallen: ");
 
         for (int i = 0; i < getallen.size(); i++) {
+
             System.out.println(getallen.get(i));
+
         }
+
     }
 
 }
