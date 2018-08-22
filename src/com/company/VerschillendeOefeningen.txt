@@ -135,9 +135,11 @@ public static void main(String[] args) {
 
         System.arraycopy(getallen, 0, nieuweArray, 0, getallen.length);
 
-        getallen = nieuweArray;
+        //    getallen = nieuweArray;     Dit hoeft niet perce.
 
-        return getallen;
+        //    return getallen;
+
+        return nieuweArray;
     }
 
 -------------------------------------------------------------------------------------------------------------------------

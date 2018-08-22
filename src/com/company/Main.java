@@ -55,8 +55,11 @@ public class Main {
 
         System.arraycopy(getallen, 0, nieuweArray, 0, getallen.length);
 
-        getallen = nieuweArray;
 
-        return getallen;
+    //    getallen = nieuweArray;     Dit hoeft niet perce.
+
+    //    return getallen;
+
+        return nieuweArray;
     }
 }
