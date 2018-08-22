@@ -9,11 +9,10 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        int[] getallen = new int[3];
 
-
-        int teller = 0;
         int input;
+
+        DynArray getallen = new DynArray();
 
 
         do {
@@ -22,44 +21,20 @@ public class Main {
 
             input = Integer.parseInt(scanner.nextLine());
 
-            if (input >= 0) {
+            if (input >= 0)
+                getallen.add(input);
 
-
-                if (teller == getallen.length) {
-
-                    getallen = vergrootArray(getallen);
-                }
-
-                getallen[teller] = input;
-
-                teller++;
-            }
 
         } while (input >=0);
 
 
-        Arrays.sort(getallen, 0, teller);  //  Dit is belangrijk !
-
-
         System.out.println("De gesorteerde lijst:");
 
-        for (int i = 0; i < teller; i++) {
-            System.out.println(getallen[i]);
+        getallen.sort();
+
+        for (int i = 0; i < getallen.size(); i++) {
+            System.out.println(getallen.get(i));
         }
     }
 
-    private static int[] vergrootArray(int[] getallen) {
-
-        int[] nieuweArray = new int[getallen.length + 1];
-
-
-        System.arraycopy(getallen, 0, nieuweArray, 0, getallen.length);
-
-
-    //    getallen = nieuweArray;     Dit hoeft niet perce.
-
-    //    return getallen;
-
-        return nieuweArray;
-    }
 }
