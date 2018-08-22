@@ -145,3 +145,104 @@ public static void main(String[] args) {
 -------------------------------------------------------------------------------------------------------------------------
 Zelfde oef. met klasse voor de dynamische array.
 
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+
+        int input;
+
+        DynArray getallen = new DynArray();
+
+
+        do {
+
+            System.out.print("Geef getal: ");
+
+            input = Integer.parseInt(scanner.nextLine());
+
+            if (input >= 0)
+                getallen.add(input);
+
+
+        } while (input >=0);
+
+
+        System.out.println("De gesorteerde lijst:");
+
+        getallen.sort();
+
+        for (int i = 0; i < getallen.size(); i++) {
+            System.out.println(getallen.get(i));
+        }
+    }
+
+}
+
+
+package com.company;
+
+import java.util.Arrays;
+
+
+public class DynArray {
+
+    private int[] elementen;
+
+    private int aantal;
+
+
+    public DynArray() {
+
+        elementen = new int[4];
+
+    }
+
+    public int size() {
+
+        return aantal;
+
+    }
+
+    public int get(int index) {
+
+        if (index >= aantal) throw new ArrayIndexOutOfBoundsException("te groot");
+
+        return elementen[index];
+
+    }
+
+    public void add(int getal) {
+
+        if (aantal == elementen.length)
+            elementen = resize(elementen);
+
+        elementen[aantal] = getal;
+
+        aantal++;
+
+    }
+
+    private int[] resize(int[] lijst) {
+
+        int[] temp = new int[lijst.length * 2];
+
+        System.arraycopy(lijst, 0, temp, 0, lijst.length);
+
+        return temp;
+
+    }
+
+    public void sort() {
+
+        Arrays.sort(elementen, 0, aantal);
+    }
+
+}
+
+------------------------------------------------------------------------------------------------------------------------
+
+

@@ -3,16 +3,16 @@ package com.company;
 import java.util.Arrays;
 
 
-public class DynArray {
+public class DynArray<T> {
 
-    private int[] elementen;
+    private T[] elementen;
 
     private int aantal;
 
 
     public DynArray() {
 
-        elementen = new int[4];
+
 
     }
 
@@ -22,7 +22,7 @@ public class DynArray {
 
     }
 
-    public int get(int index) {
+    public T get(int index) {
 
         if (index >= aantal) throw new ArrayIndexOutOfBoundsException("te groot");
 
@@ -30,7 +30,7 @@ public class DynArray {
 
     }
 
-    public void add(int getal) {
+    public void add(T getal) {
 
         if (aantal == elementen.length)
             elementen = resize(elementen);
@@ -41,7 +41,7 @@ public class DynArray {
 
     }
 
-    private int[] resize(int[] lijst) {
+    private T[] resize(T[] lijst) {
 
         int[] temp = new int[lijst.length * 2];
 
